@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: oauth2-resource
+  datasource:
+    url: jdbc:mysql://172.21.129.224:3306/oauth2_resource?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=CTT&characterEncoding=UTF-8
+    username: root
+    password: 123456
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: MyHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+server:
+  port: 8081
+
+mybatis:
+  type-aliases-package: com.hu.oauth2.resource.domain
+  mapper-locations: classpath:mapper/*.xml
